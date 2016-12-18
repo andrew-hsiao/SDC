@@ -36,7 +36,41 @@ def LeNet(x):
     x = tf.pad(x, [[0, 0], [2, 2], [2, 2], [0, 0]], mode="CONSTANT")
     # TODO: Define the LeNet architecture.
     # Return the result of the last fully connected layer.
-    return x
+    weights = {
+                "layer_1":tf.Variable(tf.truncated_normal([5, 5, 1, 6])),
+                "layer_2":tf.Variable(tf.truncated_normal([5, 5, 6, 16])),
+                "layer_3":tf.Variable(tf.truncated_normal([400, 120])),
+                "layer_4":tf.Variable(tf.truncated_normal([120, 10]))
+                }
+
+    bias = {
+                "layer_1":tf.zeros(6),
+                "layer_2":tf.zeros(16),
+                "layer_3":tf.zeros(120),
+                "layer_4":tf.zeros(10)
+            }
+
+    #(32,32,1) -conv-> (28,28,6) -pool-> (14,14,6)
+    act_1 = tf.nn.conv2d(x, weights['layer_1'], strides=[1, 1, 1, 1], padding="VALID") + bias['layer_1']
+    act_1 = tf.nn.relu(act_1)
+    act_1 = tf.nn.max_pool(act_1, [1, 2, 2, 1], [1, 2, 2, 1], "VALID")
+
+    #(14,14,6) -conv-> (10,10,16) -pool-> (5,5,16)
+    act_2 = tf.nn.conv2d(act_1, weights['layer_2'], strides=[1, 1, 1, 1], padding="VALID") + bias['layer_2']
+    act_2 = tf.nn.relu(act_2)
+    act_2 = tf.nn.max_pool(act_2, [1, 2, 2, 1], [1, 2, 2, 1], "VALID")
+
+    #(5, 5, 16) -flatten-> 5*5*16=400
+    act_2 = flatten(act_2)
+
+    #400 -FC-> 120
+    act_3 = tf.add(tf.matmul(act_2, weights['layer_3']), bias['layer_3'])
+    act_3 = tf.nn.relu(act_3)
+
+    #120 -FC-> 10
+    act_4 = tf.add(tf.matmul(act_3, weights['layer_4']), bias['layer_4'])
+
+    return act_4
 
 
 # MNIST consists of 28x28x1, grayscale images
@@ -100,5 +134,3 @@ if __name__ == '__main__':
         test_loss, test_acc = eval_data(mnist.test)
         print("Test loss = {:.3f}".format(test_loss))
         print("Test accuracy = {:.3f}".format(test_acc))
-
-
