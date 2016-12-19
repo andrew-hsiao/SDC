@@ -44,10 +44,10 @@ def LeNet(x):
                 }
 
     bias = {
-                "layer_1":tf.zeros(6),
-                "layer_2":tf.zeros(16),
-                "layer_3":tf.zeros(120),
-                "layer_4":tf.zeros(10)
+                "layer_1":tf.Variable(tf.zeros(6)),
+                "layer_2":tf.Variable(tf.zeros(16)),
+                "layer_3":tf.Variable(tf.zeros(120)),
+                "layer_4":tf.Variable(tf.zeros(10))
             }
 
     #(32,32,1) -conv-> (28,28,6) -pool-> (14,14,6)
