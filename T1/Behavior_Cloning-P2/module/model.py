@@ -260,6 +260,13 @@ def predict(x):
     return pred
 
 def parse_driving_log_and_load_image(csv_fn, image_shape):
+    '''Parse the csv file to get relative date (steer angle, throttle,..) and read image (BGR)
+    Args:
+        csv_fn: String of the filename of csv
+        image_shape: Output image size.
+    Return:
+        3 pairs of camera frame and steer angle: left , center and right camera
+    '''
     driving_log = pd.read_csv(csv_fn, delimiter=',', header=None, skiprows=1)
     img_dir = os.path.split(csv_fn)[0]
     images_center = []
@@ -321,6 +328,13 @@ def parse_driving_log_and_load_image(csv_fn, image_shape):
     return a, b, c
 
 def load_data(root_dir, image_shape):
+    '''Load data recursively
+    Args:
+        root_dir: The root folder of training data
+        image_shape: Output image size.
+    Return:
+        3 pairs of camera frame and steer angle: left , center and right camera
+    '''
     data_x_c = []
     data_y_c = []
     data_x_l = []
@@ -348,6 +362,12 @@ def load_data(root_dir, image_shape):
 
 #BGR => BGRG
 def preprocess_insert_gray_channel(data):
+    '''Converting original image data into gray then append to original frame
+    Args:
+        data: The training image
+    Return:
+        training image with BGRG
+    '''
     n_sample = data.shape[0]
     new_images = []
     for index in range(n_sample):
@@ -363,6 +383,15 @@ def preprocess_insert_gray_channel(data):
 #x_l, x_c, x_r: left camera frames, center camera frames, right camera frames
 #y_c: center camera angle
 def augment_data_by_side_camera(x_l, x_c, x_r, y_c):
+    '''Combine 3 camera data
+    Args:
+        x_l: Left camera frame
+        x_c: Center camera frame
+        x_r: Right camera frame
+        y_c: Steer angle
+    Return:
+        Training data with 3 camera
+    '''
     cal_factor = np.std(y_c)
     cal_l = cal_factor * (1-abs(y_c))
     cal_r = -cal_factor * (1-abs(y_c))
@@ -375,6 +404,14 @@ def augment_data_by_side_camera(x_l, x_c, x_r, y_c):
     return x_aug, y_aug
 
 def augment_data_by_flip(images, angles):
+    '''Apply horizontal flip
+    Args:
+        images: camera frame images
+        angles: steer angles
+    Return:
+        Orignal data with horizontal data
+    '''
+
     #flip data augmentation
     flip_images = []
     flip_angle = []

@@ -1,0 +1,195 @@
+# **Behavior Cloning P2** 
+---
+
+Objective: To learn player's driving behavior through end to end training system.
+---
+
+## The system is a supervised learning, the model will be trained by inpout data: 'camer frame' and label data: 'angle of steer'
+
+Because there are three camera perspectatives and there is no precise way to calibrate left/right camera and I hope to leverge all three cameras to capture most frames of position, I decide to split the training procedure into 2 phases. The phase 1 is focus on feature representation, the system will use all the 3 camera frames to train model. The left/right camera is calibrated angle by one standard devitation of all steer angles in training data. The phase 2 will use transfer learning and only train the last regression layer. In phase 2, we only put center camera data for training. This approach achieves a good performance in test time.
+
+The major trainning procedure is listed as the following:
+1. Load training data (I play 6 times plus the official data)
+2. Data augmentation 1 (combine left, center, right camera's frames as training data)
+3. Data preprocess (append gray channel, the image format will be BGRG)
+4. Data augmentation 2 (horizontal flip)
+5. Train by DenseNet, except the last layer is regression, the architecture is the same as previous project: traffic sign recognition.
+6. Prepare data by preprocess & horizontal flip only on center camera frames for phase 2 training
+7. Train final model by transferring learing (only train the last layer) on augmented center camera frames.
+
+## Model architecture
+As traffic sigh recognition project, I adopt DenseNet (https://arxiv.org/abs/1608.06993) because it has good performance with fewer parameters. The high level architecture seems like the following:
+
+INPUT
+____________________________________________________________________________________________________
+CONV
+_____________________________________________________________________________________________
+{BN-RELU-CONV}X2-MERGE
+____________________________________________________________________________________________________
+{BN-RELU-CONV}X2-MERGE
+____________________________________________________________________________________________________
+{BN-RELU-CONV}-AVGPOOL
+____________________________________________________________________________________________________
+{BN-RELU-CONV}X2-MERGE
+____________________________________________________________________________________________________
+{BN-RELU-CONV}X2-MERGE
+____________________________________________________________________________________________________
+{BN-RELU-CONV}-AVGPOOL
+____________________________________________________________________________________________________
+{BN-RELU-CONV}X2-MERGE
+____________________________________________________________________________________________________
+{BN-RELU-CONV}X2-MERGE
+____________________________________________________________________________________________________
+{BN-RELU-GAVGPOOL}
+____________________________________________________________________________________________________
+DENSE-REGRESSION
+
+
+The detail is:
+
+input_1 (InputLayer)             (None, 80, 80, 4)     0                                            
+____________________________________________________________________________________________________
+initial_conv2D (Convolution2D)   (None, 80, 80, 16)    576         input_1[0][0]                    
+____________________________________________________________________________________________________
+batchnormalization_1 (BatchNorma (None, 80, 80, 16)    64          initial_conv2D[0][0]             
+____________________________________________________________________________________________________
+activation_1 (Activation)        (None, 80, 80, 16)    0           batchnormalization_1[0][0]       
+____________________________________________________________________________________________________
+convolution2d_1 (Convolution2D)  (None, 80, 80, 32)    512         activation_1[0][0]               
+____________________________________________________________________________________________________
+batchnormalization_2 (BatchNorma (None, 80, 80, 32)    128         convolution2d_1[0][0]            
+____________________________________________________________________________________________________
+activation_2 (Activation)        (None, 80, 80, 32)    0           batchnormalization_2[0][0]       
+____________________________________________________________________________________________________
+convolution2d_2 (Convolution2D)  (None, 80, 80, 8)     2304        activation_2[0][0]               
+____________________________________________________________________________________________________
+merge_1 (Merge)                  (None, 80, 80, 24)    0           initial_conv2D[0][0]             
+                                                                   convolution2d_2[0][0]            
+____________________________________________________________________________________________________
+batchnormalization_3 (BatchNorma (None, 80, 80, 24)    96          merge_1[0][0]                    
+____________________________________________________________________________________________________
+activation_3 (Activation)        (None, 80, 80, 24)    0           batchnormalization_3[0][0]       
+____________________________________________________________________________________________________
+convolution2d_3 (Convolution2D)  (None, 80, 80, 32)    768         activation_3[0][0]               
+____________________________________________________________________________________________________
+batchnormalization_4 (BatchNorma (None, 80, 80, 32)    128         convolution2d_3[0][0]            
+____________________________________________________________________________________________________
+activation_4 (Activation)        (None, 80, 80, 32)    0           batchnormalization_4[0][0]       
+____________________________________________________________________________________________________
+convolution2d_4 (Convolution2D)  (None, 80, 80, 8)     2304        activation_4[0][0]               
+____________________________________________________________________________________________________
+merge_2 (Merge)                  (None, 80, 80, 32)    0           initial_conv2D[0][0]             
+                                                                   convolution2d_2[0][0]            
+                                                                   convolution2d_4[0][0]            
+____________________________________________________________________________________________________
+batchnormalization_5 (BatchNorma (None, 80, 80, 32)    128         merge_2[0][0]                    
+____________________________________________________________________________________________________
+activation_5 (Activation)        (None, 80, 80, 32)    0           batchnormalization_5[0][0]       
+____________________________________________________________________________________________________
+convolution2d_5 (Convolution2D)  (None, 80, 80, 16)    512         activation_5[0][0]               
+____________________________________________________________________________________________________
+averagepooling2d_1 (AveragePooli (None, 40, 40, 16)    0           convolution2d_5[0][0]            
+____________________________________________________________________________________________________
+batchnormalization_6 (BatchNorma (None, 40, 40, 16)    64          averagepooling2d_1[0][0]         
+____________________________________________________________________________________________________
+activation_6 (Activation)        (None, 40, 40, 16)    0           batchnormalization_6[0][0]       
+____________________________________________________________________________________________________
+convolution2d_6 (Convolution2D)  (None, 40, 40, 32)    512         activation_6[0][0]               
+____________________________________________________________________________________________________
+batchnormalization_7 (BatchNorma (None, 40, 40, 32)    128         convolution2d_6[0][0]            
+____________________________________________________________________________________________________
+activation_7 (Activation)        (None, 40, 40, 32)    0           batchnormalization_7[0][0]       
+____________________________________________________________________________________________________
+convolution2d_7 (Convolution2D)  (None, 40, 40, 8)     2304        activation_7[0][0]               
+____________________________________________________________________________________________________
+merge_3 (Merge)                  (None, 40, 40, 24)    0           averagepooling2d_1[0][0]         
+                                                                   convolution2d_7[0][0]            
+____________________________________________________________________________________________________
+batchnormalization_8 (BatchNorma (None, 40, 40, 24)    96          merge_3[0][0]                    
+____________________________________________________________________________________________________
+activation_8 (Activation)        (None, 40, 40, 24)    0           batchnormalization_8[0][0]       
+____________________________________________________________________________________________________
+convolution2d_8 (Convolution2D)  (None, 40, 40, 32)    768         activation_8[0][0]               
+____________________________________________________________________________________________________
+batchnormalization_9 (BatchNorma (None, 40, 40, 32)    128         convolution2d_8[0][0]            
+____________________________________________________________________________________________________
+activation_9 (Activation)        (None, 40, 40, 32)    0           batchnormalization_9[0][0]       
+____________________________________________________________________________________________________
+convolution2d_9 (Convolution2D)  (None, 40, 40, 8)     2304        activation_9[0][0]               
+____________________________________________________________________________________________________
+merge_4 (Merge)                  (None, 40, 40, 32)    0           averagepooling2d_1[0][0]         
+                                                                   convolution2d_7[0][0]            
+                                                                   convolution2d_9[0][0]            
+____________________________________________________________________________________________________
+batchnormalization_10 (BatchNorm (None, 40, 40, 32)    128         merge_4[0][0]                    
+____________________________________________________________________________________________________
+activation_10 (Activation)       (None, 40, 40, 32)    0           batchnormalization_10[0][0]      
+____________________________________________________________________________________________________
+convolution2d_10 (Convolution2D) (None, 40, 40, 16)    512         activation_10[0][0]              
+____________________________________________________________________________________________________
+averagepooling2d_2 (AveragePooli (None, 20, 20, 16)    0           convolution2d_10[0][0]           
+____________________________________________________________________________________________________
+batchnormalization_11 (BatchNorm (None, 20, 20, 16)    64          averagepooling2d_2[0][0]         
+____________________________________________________________________________________________________
+activation_11 (Activation)       (None, 20, 20, 16)    0           batchnormalization_11[0][0]      
+____________________________________________________________________________________________________
+convolution2d_11 (Convolution2D) (None, 20, 20, 32)    512         activation_11[0][0]              
+____________________________________________________________________________________________________
+batchnormalization_12 (BatchNorm (None, 20, 20, 32)    128         convolution2d_11[0][0]           
+____________________________________________________________________________________________________
+activation_12 (Activation)       (None, 20, 20, 32)    0           batchnormalization_12[0][0]      
+____________________________________________________________________________________________________
+convolution2d_12 (Convolution2D) (None, 20, 20, 8)     2304        activation_12[0][0]              
+____________________________________________________________________________________________________
+merge_5 (Merge)                  (None, 20, 20, 24)    0           averagepooling2d_2[0][0]         
+                                                                   convolution2d_12[0][0]           
+____________________________________________________________________________________________________
+batchnormalization_13 (BatchNorm (None, 20, 20, 24)    96          merge_5[0][0]                    
+____________________________________________________________________________________________________
+activation_13 (Activation)       (None, 20, 20, 24)    0           batchnormalization_13[0][0]      
+____________________________________________________________________________________________________
+convolution2d_13 (Convolution2D) (None, 20, 20, 32)    768         activation_13[0][0]              
+____________________________________________________________________________________________________
+batchnormalization_14 (BatchNorm (None, 20, 20, 32)    128         convolution2d_13[0][0]           
+____________________________________________________________________________________________________
+activation_14 (Activation)       (None, 20, 20, 32)    0           batchnormalization_14[0][0]      
+____________________________________________________________________________________________________
+convolution2d_14 (Convolution2D) (None, 20, 20, 8)     2304        activation_14[0][0]              
+____________________________________________________________________________________________________
+merge_6 (Merge)                  (None, 20, 20, 32)    0           averagepooling2d_2[0][0]         
+                                                                   convolution2d_12[0][0]           
+                                                                   convolution2d_14[0][0]           
+____________________________________________________________________________________________________
+batchnormalization_15 (BatchNorm (None, 20, 20, 32)    128         merge_6[0][0]                    
+____________________________________________________________________________________________________
+activation_15 (Activation)       (None, 20, 20, 32)    0           batchnormalization_15[0][0]      
+____________________________________________________________________________________________________
+globalaveragepooling2d_1 (Global (None, 32)            0           activation_15[0][0]              
+____________________________________________________________________________________________________
+dense_1 (Dense)                  (None, 1)             33          globalaveragepooling2d_1[0][0] 
+
+
+## Data Preprocess & augmentation
+
+The trainig dataset includes 7 collections. The first one is sample data, the other six collections are normal driving that is recorded by myself.
+
+In training mode, the simulator will provide 3 camera frames: left/center/right. The angle is only valid for center camera. The left/right camera could provide useful perspectative, but in test time, there will only have center camera. On the other hand, there is no enough information to calibrate center/right camera to center camera's steer angle. I decide to +/- one standard deviation of center steer angle to left/right in phase 1.
+
+Another data augmentation skill is horizon flip, because the original steer angle is skew and the steer angle/camera frames are symetric, it is very useful to increase training data.
+
+Because the track two is more dark than track one, so I create a gray channel and append to original BGR data for better generalization.
+
+In phase 2 training, I only use center camera frame. 
+
+Training / validataion dataset splition is done by keras.fit. I use 90% data for training, 10% data for validation
+
+## Training Parameter
+Both two phases I use 30 epoch, but in phase 2, the training precedure will stop if there are 5 epoch without any improvement in validation data. For optimizer, I use Adam optimizer with 1e-3 learning rate.
+
+
+## Usage
+#### Training mode: python model.py
+#### Automous mode: python drive.py model.json
+
+
+
