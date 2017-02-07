@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>README</title>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(171, 178, 191); overflow: auto; background-color: rgb(40, 44, 52); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(124, 135, 156); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(82, 139, 255); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(124, 135, 156); border-color: rgb(75, 83, 98); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top-width: 2px; border-top-style: dashed; border-top-color: rgb(75, 83, 98); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(75, 83, 98); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(58, 63, 75); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(49, 54, 63); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(75, 83, 98) rgb(75, 83, 98) rgb(62, 68, 81); background-color: rgb(58, 63, 75); }
+.markdown-preview[data-use-github-style] { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left-width: 4px; border-left-style: solid; border-left-color: rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top-width: 1px; border-top-style: solid; border-top-color: rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .horizontal-scrollbar { visibility: visible; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+
+pre.editor-colors,
+.host {
+  background-color: #282c34;
+  color: #abb2bf;
+}
+pre.editor-colors .line.cursor-line,
+.host .line.cursor-line {
+  background-color: rgba(153, 187, 255, 0.04);
+}
+pre.editor-colors .invisible,
+.host .invisible {
+  color: #abb2bf;
+}
+pre.editor-colors .cursor,
+.host .cursor {
+  border-left: 2px solid #528bff;
+}
+pre.editor-colors .selection .region,
+.host .selection .region {
+  background-color: #3e4451;
+}
+pre.editor-colors .bracket-matcher .region,
+.host .bracket-matcher .region {
+  border-bottom: 1px solid #528bff;
+  box-sizing: border-box;
+}
+pre.editor-colors .invisible-character,
+.host .invisible-character {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .indent-guide,
+.host .indent-guide {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .wrap-guide,
+.host .wrap-guide {
+  background-color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .gutter .line-number,
+.host .gutter .line-number {
+  color: #636d83;
+  -webkit-font-smoothing: antialiased;
+}
+pre.editor-colors .gutter .line-number.cursor-line,
+.host .gutter .line-number.cursor-line {
+  color: #abb2bf;
+  background-color: #2c313a;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection,
+.host .gutter .line-number.cursor-line-no-selection {
+  background-color: transparent;
+}
+pre.editor-colors .gutter .line-number .icon-right,
+.host .gutter .line-number .icon-right {
+  color: #abb2bf;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before,
+.host .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before {
+  bottom: -3px;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed::after,
+.host .gutter:not(.git-diff-icon) .line-number.git-line-removed::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 25px;
+  border-bottom: 1px dotted rgba(224, 82, 82, 0.5);
+  pointer-events: none;
+}
+pre.editor-colors .gutter .line-number.folded,
+.host .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+.host .gutter .line-number:after,
+pre.editor-colors .fold-marker:after,
+.host .fold-marker:after {
+  color: #abb2bf;
+}
+.comment {
+  color: #5c6370;
+  font-style: italic;
+}
+.comment .markup.link {
+  color: #5c6370;
+}
+.entity.name.type {
+  color: #e5c07b;
+}
+.entity.other.inherited-class {
+  color: #98c379;
+}
+.keyword {
+  color: #c678dd;
+}
+.keyword.control {
+  color: #c678dd;
+}
+.keyword.operator {
+  color: #abb2bf;
+}
+.keyword.other.special-method {
+  color: #61afef;
+}
+.keyword.other.unit {
+  color: #d19a66;
+}
+.storage {
+  color: #c678dd;
+}
+.storage.type.annotation,
+.storage.type.primitive {
+  color: #c678dd;
+}
+.storage.modifier.package,
+.storage.modifier.import {
+  color: #abb2bf;
+}
+.constant {
+  color: #d19a66;
+}
+.constant.variable {
+  color: #d19a66;
+}
+.constant.character.escape {
+  color: #56b6c2;
+}
+.constant.numeric {
+  color: #d19a66;
+}
+.constant.other.color {
+  color: #56b6c2;
+}
+.constant.other.symbol {
+  color: #56b6c2;
+}
+.variable {
+  color: #e06c75;
+}
+.variable.interpolation {
+  color: #be5046;
+}
+.variable.parameter {
+  color: #abb2bf;
+}
+.string {
+  color: #98c379;
+}
+.string.regexp {
+  color: #56b6c2;
+}
+.string.regexp .source.ruby.embedded {
+  color: #e5c07b;
+}
+.string.other.link {
+  color: #e06c75;
+}
+.punctuation.definition.comment {
+  color: #5c6370;
+}
+.punctuation.definition.method-parameters,
+.punctuation.definition.function-parameters,
+.punctuation.definition.parameters,
+.punctuation.definition.separator,
+.punctuation.definition.seperator,
+.punctuation.definition.array {
+  color: #abb2bf;
+}
+.punctuation.definition.heading,
+.punctuation.definition.identity {
+  color: #61afef;
+}
+.punctuation.definition.bold {
+  color: #e5c07b;
+  font-weight: bold;
+}
+.punctuation.definition.italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.punctuation.section.embedded {
+  color: #be5046;
+}
+.punctuation.section.method,
+.punctuation.section.class,
+.punctuation.section.inner-class {
+  color: #abb2bf;
+}
+.support.class {
+  color: #e5c07b;
+}
+.support.type {
+  color: #56b6c2;
+}
+.support.function {
+  color: #56b6c2;
+}
+.support.function.any-method {
+  color: #61afef;
+}
+.entity.name.function {
+  color: #61afef;
+}
+.entity.name.class,
+.entity.name.type.class {
+  color: #e5c07b;
+}
+.entity.name.section {
+  color: #61afef;
+}
+.entity.name.tag {
+  color: #e06c75;
+}
+.entity.other.attribute-name {
+  color: #d19a66;
+}
+.entity.other.attribute-name.id {
+  color: #61afef;
+}
+.meta.class {
+  color: #e5c07b;
+}
+.meta.class.body {
+  color: #abb2bf;
+}
+.meta.method-call,
+.meta.method {
+  color: #abb2bf;
+}
+.meta.definition.variable {
+  color: #e06c75;
+}
+.meta.link {
+  color: #d19a66;
+}
+.meta.require {
+  color: #61afef;
+}
+.meta.selector {
+  color: #c678dd;
+}
+.meta.separator {
+  background-color: #373b41;
+  color: #abb2bf;
+}
+.meta.tag {
+  color: #abb2bf;
+}
+.underline {
+  text-decoration: underline;
+}
+.none {
+  color: #abb2bf;
+}
+.invalid.deprecated {
+  color: #523d14 !important;
+  background-color: #e0c285 !important;
+}
+.invalid.illegal {
+  color: #ffffff !important;
+  background-color: #e05252 !important;
+}
+.markup.bold {
+  color: #d19a66;
+  font-weight: bold;
+}
+.markup.changed {
+  color: #c678dd;
+}
+.markup.deleted {
+  color: #e06c75;
+}
+.markup.italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.markup.heading {
+  color: #e06c75;
+}
+.markup.heading .punctuation.definition.heading {
+  color: #61afef;
+}
+.markup.link {
+  color: #c678dd;
+}
+.markup.inserted {
+  color: #98c379;
+}
+.markup.quote {
+  color: #d19a66;
+}
+.markup.raw {
+  color: #98c379;
+}
+.source.cs .keyword.operator {
+  color: #c678dd;
+}
+.source.css .property-name,
+.source.css .property-value {
+  color: #828997;
+}
+.source.css .property-name.support,
+.source.css .property-value.support {
+  color: #abb2bf;
+}
+.source.gfm .markup {
+  -webkit-font-smoothing: auto;
+}
+.source.gfm .link .entity {
+  color: #61afef;
+}
+.source.ini .keyword.other.definition.ini {
+  color: #e06c75;
+}
+.source.java .storage.modifier.import {
+  color: #e5c07b;
+}
+.source.java .storage.type {
+  color: #e5c07b;
+}
+.source.java-properties .meta.key-pair {
+  color: #e06c75;
+}
+.source.java-properties .meta.key-pair > .punctuation {
+  color: #abb2bf;
+}
+.source.js .keyword.operator {
+  color: #56b6c2;
+}
+.source.js .keyword.operator.delete,
+.source.js .keyword.operator.in,
+.source.js .keyword.operator.of,
+.source.js .keyword.operator.instanceof,
+.source.js .keyword.operator.new,
+.source.js .keyword.operator.typeof,
+.source.js .keyword.operator.void {
+  color: #c678dd;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json {
+  color: #e06c75;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json > .punctuation.string {
+  color: #e06c75;
+}
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json > .punctuation,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json > .punctuation {
+  color: #98c379;
+}
+.source.json .meta.structure.dictionary.json > .constant.language.json,
+.source.json .meta.structure.array.json > .constant.language.json {
+  color: #56b6c2;
+}
+.source.ruby .constant.other.symbol > .punctuation {
+  color: inherit;
+}
+.source.python .keyword.operator.logical.python {
+  color: #c678dd;
+}
+.source.python .variable.parameter {
+  color: #d19a66;
+}
+</style>
+  </head>
+  <body class='markdown-preview' data-use-github-style><h2 id="-advanced-lane-finding-project-sdc-project-4-"><strong>Advanced Lane Finding Project (SDC Project 4)</strong></h2>
+<hr>
+<p><strong>The goals / steps of this project are the following:</strong></p>
+<ul>
+<li>Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.</li>
+<li>Apply a distortion correction to raw images.</li>
+<li>Use color transforms, gradients, etc., to create a thresholded binary image.</li>
+<li>Apply a perspective transform to rectify binary image (&quot;birds-eye view&quot;).</li>
+<li>Detect lane pixels and fit to find the lane boundary.</li>
+<li>Determine the curvature of the lane and vehicle position with respect to center.</li>
+<li>Warp the detected lane boundaries back onto the original image.</li>
+<li>Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.</li>
+</ul>
+<hr>
+<h2 id="-software-modules-"><strong>Software Modules</strong></h2>
+<p>The major implementation of this project is alld module which is locale under alld folder:</p>
+<h3 id="-1-alld-"><strong>1. alld</strong></h3>
+<p>alld is advanced lane line detection implementation for this project</p>
+<h4 id="1-1-alld-cam-cameraauxiliary">1.1 alld.cam.CameraAuxiliary</h4>
+<p>Camera calibration relative function&#39;s implementation</p>
+<h4 id="1-2-alld-image_filter-edgedetector">1.2 alld.image_filter.EdgeDetector</h4>
+<p>High level edge detection algorithm implementation</p>
+<h4 id="1-3-alld-image_filter-gradientfilter">1.3 alld.image_filter.GradientFilter</h4>
+<p>Low level edge detection algorithm</p>
+<h4 id="1-4-alld-trans-perspectivetrans">1.4 alld.trans.PerspectiveTrans</h4>
+<p>Implement the perspective transformation</p>
+<h4 id="1-5-alld-road_mgr-laneline">1.5 alld.road_mgr.LaneLine</h4>
+<p>Imp#lement lane line fitting algorithm and information</p>
+<h3 id="1-6-alld-road_mgr-roadmanager">1.6 alld.road_mgr.RoadManager</h3>
+<p>Management road information and the hight level lane lines detection function.</p>
+<h4 id="1-7-alld-viz_util-visualutil">1.7 alld.viz_util.VisualUtil</h4>
+<p>All the required visualization functions are implemented in this class</p>
+<h3 id="-2-sdcp4-"><strong>2. sdcp4</strong></h3>
+<p>Except alld, there is a file sdcp4.py implements the pipeline to generate final output image</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>usage:&nbsp;python&nbsp;sdcp4.py&nbsp;[-f&nbsp;filename]&nbsp;[-d]</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>optional&nbsp;arguments:</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>-f&nbsp;&nbsp;input&nbsp;video&nbsp;file&nbsp;name,&nbsp;defult&nbsp;is&nbsp;project_video.mp4</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>-d&nbsp;&nbsp;use&nbsp;diagnostic&nbsp;pipeline</span></span></span></div></pre><h4 id="2-1-sdcp4-pipeline">2.1 sdcp4.pipeline</h4>
+<p>Providing a pipeline to handle whole process from camera data to lane detected image.</p>
+<h4 id="2-2-sdcp4-pipeline_diag">2.2 sdcp4.pipeline_diag</h4>
+<p>Generating images which combine more images in pipeline stage for diagnostic.</p>
+<h3 id="-3-misc-"><strong>3. misc</strong></h3>
+<h4 id="3-1-adv_lane_line_det-ipynb">3.1 adv_lane_line_det.ipynb</h4>
+<p>This is the major file to generate all images which are used in README.md</p>
+<h2 id="-camera-calibration-"><strong>Camera Calibration</strong></h2>
+<p>Because camera captured images may have lens distortion.
+Before going to process image, the first step is camera calibration.
+Camera calibration is required many chessboard images to calculate transform matrix and distortion by image points and object points.Once the image points of chessboard corners have been detected, we could generate object points. After all the image points and object points have been collected, it is ready to use <code>cv2.calibrateCamera()</code> to get transform matrix and distortion. In the project, there are 20 chessboard images locale at <code>camera_cal</code> folder. Almost images could be fitted by object points with corner counts: (9,6). There three images: calibration4.jpg (6,5), calibration5.jpg (7,5), calibration1.jpg(9,4) have different corner counts. I implemented a simple search procedure at <code>alld.cam.CameraAuxiliary::_gen_cb_corners()</code>
+The major code is implemented at <code>alld.cam.CameraAuxiliary::fit()</code> The code <code>sdcp4.py calbrate_camera()</code> presents how to use <code>fit()</code> function. For further using, the calibration data could be stored by <code>save()</code> with specific file name. (default is cam_cal.p). The calibrated sample images can be generate by <code>sdcp4.py draw_image_calibration()</code>:</p>
+<p><img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/calibration.png" alt="alt text" title="Camera Calibration"></p>
+<h2 id="-pipeline-single-images-"><strong>Pipeline (single images)</strong></h2>
+<p>The pipeline is consist of 5 steps: 1. distortion correction, 2. edge detection, 3. perspective transform, 4. lane area detection, 5. final output. <code>sdcp4.py draw_pipeline()</code> is presenting the whole procedure. The details are listed as the following: (original image is &#39;./test_images/test4.jpg&#39;)</p>
+<h3 id="1-distortion-correction">1. Distortion Correction</h3>
+<p>Once we have transform matrix and distortion of camera, we could apply it on new images by <code>cv2.undistort()</code> to calibrate images. In previous stage, we saved the matrix and distortion into file. Now, we can use the data to undistort image through <code>alld.cam.CameraAuxiliary::calibrate()</code>. The following is undistorted image:</p>
+<p><img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_0.png" alt="alt text" title="Distortion Correction"></p>
+<h3 id="2-edge-detection">2. Edge Detection</h3>
+<p>Edge detection is not a trivial task. There are 4 kinds of gradient of sobel filter could be used, threshold hold is required to be decided and there are many color space are available to be considered. I implemented a warper class for sobel edge detector: <code>alld.image_filter.GradientFilter</code> and the major edge detection logics are implemented at <code>alld.image_filter.EdgeDetector</code>. After a lot of trials on combination, I used a combination of color and gradient thresholds to generate a binary image. The function is <code>alld.image_filter.EdgeDetector::detect_edge_complex_3()</code> that uses two channels to get the final combination. The first one is gray channel for the (magnitude &amp; directional) gradient. The second one is saturation channel of HLS, I used the ((x | y | magnitude) &amp; directional) combination. Then OR the two channels as the final output of edge detection.  Here&#39;s an example of my output for this step.
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_1.png" alt="alt text" title="Edge Detection"></p>
+<h3 id="3-perspective-transform">3. Perspective Transform</h3>
+<p>The code for my perspective transform is available at from <code>alld.trans.PerspectiveTrans</code> class that includes a function named <code>warper()</code>, which appears in the file <code>adv_lane_line_det.ipynb</code> cell 7 function <code>demo_perspective_trans()</code>. The <code>warper()</code> function takes as inputs an image (<code>img</code>). I chose the hardcode the source and destination points in the following manner:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>src&nbsp;=&nbsp;np.float32(</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>[[(w&nbsp;/&nbsp;2)&nbsp;-&nbsp;64,&nbsp;h&nbsp;/&nbsp;2&nbsp;+&nbsp;100],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[((w&nbsp;/&nbsp;6)&nbsp;-&nbsp;10),&nbsp;h],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[(w&nbsp;*&nbsp;5&nbsp;/&nbsp;6)&nbsp;+&nbsp;60,&nbsp;h],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[(w&nbsp;/&nbsp;2&nbsp;+&nbsp;70),&nbsp;h&nbsp;/&nbsp;2&nbsp;+&nbsp;100]])</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>dst&nbsp;=&nbsp;np.float32(</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>[[(w&nbsp;/&nbsp;4),&nbsp;0],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[(w&nbsp;/&nbsp;4),&nbsp;h],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[(w&nbsp;*&nbsp;3&nbsp;/&nbsp;4),&nbsp;h],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[(w&nbsp;*&nbsp;3&nbsp;/&nbsp;4),&nbsp;0]])</span></span></span></div></pre><p>This resulted in the following source and destination points:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Source</th>
+<th style="text-align:center">Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">576, 460</td>
+<td style="text-align:center">320, 0</td>
+</tr>
+<tr>
+<td style="text-align:center">203, 720</td>
+<td style="text-align:center">320, 720</td>
+</tr>
+<tr>
+<td style="text-align:center">1127, 720</td>
+<td style="text-align:center">960, 720</td>
+</tr>
+<tr>
+<td style="text-align:center">710, 460</td>
+<td style="text-align:center">960, 0</td>
+</tr>
+</tbody>
+</table>
+<p>I verified that my perspective transform was working as expected by drawing the <code>src</code> and <code>dst</code> points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image. I show 4 images: &#39;original view-normal&#39;, &#39;original view-edge&#39;, &#39;bird-eyes view-normal&#39; and &#39;bird-eyes view-edge&#39;:</p>
+<p><img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_2.png" alt="alt text" title="Perspective Transform-Pinhole View (Color)">
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_3.png" alt="alt text" title="Perspective Transform-Pinhole View (Binary)">
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_4.png" alt="alt text" title="Perspective Transform-Birds Eye View (Color)">
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_5.png" alt="alt text" title="Perspective Transform-Birds Eye View (Binary)"></p>
+<h3 id="4-lane-area-detection">4. Lane Area Detection</h3>
+<p>Once the bird-eyes view edge had been prepared, the next step is to detect the lane lines between that. The lane line detection algorithm assumes there are two lane lines in a road, split the two lane lines by mid point. The algorithm will have specified scanning windows (default is 5) per each lane line. Those window will scan form bottom to up. The start point of scanning in two lines will be decided by the histogram of the bottom portion. The x has most points in average will be the start points of next scan window. After the window scanning, we will get a sorts of points in two sides (left lane and right lane). We can use polynomial curve (3 degree) to fit the lane line. The code is implemented at  <code>alld.road_mgr.LaneLine.fit()</code> and <code>alld.road_mgr.RoadManager::scan()</code>. After curve be found, we can fill the are within the two lane lines. In general case, users only need to call <code>alld.road_mgr.RoadManager::detect()</code> to detect the lane area as the code in <code>adv_lane_line_det.ipynb</code>.</p>
+<h4 id="4-1-confidence">4.1 Confidence</h4>
+<p>I developed a index to evaluate the fitting performance named as confidence. That considers two portions. The first portion is: how good is the curved fitting? We use RMSE to represent that. The second portion is: doest the lane lines reasonable? I measure the distance between the two lines and subtract the width of lane (hard code to 600 pixel). The code of confidence could be found at <code>alld.road_mgr.RoadManager::confidence()</code> If the curve can&#39;t be fitted properly, the confidence may be 0. It may not a very precise value, but is good enough for my evaluation.</p>
+<h4 id="4-2-fast-scanning">4.2 Fast scanning</h4>
+<p>Video is consists of frames, the curve between consequent frames may very similar with each other. We many not required to scan by window again. Just apply the exists curve, use it to predict y-value by new x-value then fit it again. The procedure is names as fast <code>alld.road_mgr.RoadManager::_scan_fast()</code>. The will be used in most case. If the confidence of fast scanning is lower than threshold (default is 0.8), that will trigger a full scan. The result image of lane area detection is the following:</p>
+<p><img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_6.png" alt="alt text" title="Detect Lane Area"></p>
+<h4 id="5-final-image">5. Final Image</h4>
+<h4 id="5-1-final-result">5.1 Final Result</h4>
+<p>After all the steps be applied, we can get a final result now.  The code is <code>adv_lane_line_det.ipynb</code> cell 7 <code>demo_final_result()</code>, it use the <code>sdcp4.pipeline()</code> to generate final image, the implementation is locale <code>sdcp4.py</code>   Here is an example of my result on a test image:
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_7.png" alt="alt text" title="Final Output"></p>
+<h4 id="5-2-radius-of-curvature-and-position-of-vehicle-w-r-t-center">5.2 Radius of Curvature and Position of Vehicle w.r.t Center</h4>
+<p>I applied the formula to calculate radius of curvature in meter:
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/curvature_formula.png" alt="alt text" title="Curvature Formula"></p>
+<p>The code can be found at radius_in_meter <code>alld.road_mgr.RoadManager::radius_in_meter()</code>. That is a simple wrap to average the radius of curvature of two lane lines. The code is <code>alld.road_mgr.LaneLine::radius_in_meter()</code>.</p>
+<p>Another required information is the position of vehicle w.r.t center. It is a naive implementation to calculate the difference between center of screen and middle point of detected lane line then convert pixel to meter. Pixel per meter is a hard coding:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Pixel&nbsp;per&nbsp;meter&nbsp;in&nbsp;X:&nbsp;3.7/height</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Pixel&nbsp;per&nbsp;meter&nbsp;in&nbsp;Y:&nbsp;30.0/height</span></span></span></div></pre><p>One more detail of implementation is that the code will also detect that are the lanes  straight. If the slope of both lane lines are smaller than a threshold (0.05), it will be considered as straight lane lines.</p>
+<hr>
+<h2 id="-pipeline-video-"><strong>Pipeline (video)</strong></h2>
+<h3 id="1-final-video">1. Final Video</h3>
+<p>The pipeline code can be found at <code>sdcp4.py</code>, except run by command line, the code of video file generation is also implmented in <code>adv_lane_line_det.ipynb</code> cell 8.</p>
+<p>Here&#39;s a <a href="./project_video.mp4">link to my video result</a></p>
+<h3 id="2-confidence-of-lane-line-fitting">2 Confidence of Lane Line Fitting</h3>
+<p>We can plot the confidence after run pipeline for all frames. The plot for project_video confidence is:</p>
+<p><img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/confidence_project_video.png" alt="alt text" title="Confidence Trend Chart"></p>
+<hr>
+<h2 id="-discussion-"><strong>Discussion</strong></h2>
+<h3 id="1-challenge">1. Challenge</h3>
+<p>There is a lot of challenge when I building the pipeline. Except there are a lot of decisions need to be decided and they may be required a lot trade off for different scenarios.</p>
+<p>Ex. Edge detection method: What channel of color space should I used? What edge detection method is better? What should be the threshold for edge detection?</p>
+<p>Except the parameter selection, one more challenge is the scan algorithm. In current design, the scan algorithm is good for the lane lines are nearly to straight. But that will get problem at the hair-pin curve. Because the right lane detector will collect the left lane when the right hair-pin curve like the following image (./frames/harder_challenge_video/frame0140.jpg):</p>
+<p><img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/harder_challenge.png" alt="alt text" title="Final Image-Harder Challenge Frame 140"></p>
+<h3 id="2-diagnostic-visualization">2. Diagnostic &amp; visualization</h3>
+<p>Visualization will be very useful when tunning the pipeline. I implemented many functions to help me for getting better result. All the function can be find at <code>/alld/viz_util.py</code>. There is a class to handle the visualization task: <code>alld.cam.VisualUtil</code> Beside the class, there is a diagnostic purpose pipeline function <code>pipeline_diag()</code> in <code>sdcp4.py</code> that can generate a image with rich information for diagnostic, we can use it to build a image or video, that looks like this:
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/harder_challenge_diag.png" alt="alt text" title="Harder Challenge Image Diagnostics View"></p>
+<h4 id="2-1-pipeline-for-diagnostic">2.1 Pipeline for Diagnostic</h4>
+<p>When tuning edge detection, we will try the different combinations and threshold. If the major steps in pipeline could be visualized in place, that will be very helpful on this task. I implemented a function to draw a figure which combines major state in pipeline. The code can be found at <code>alld.cam.VisualUtil::draw_pipeline()</code>
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/harder_challenge_pipeline.png" alt="alt text" title="Harder Challenge Pipeline"></p>
+<h4 id="2-2-draw-all-channels">2.2 Draw all channels</h4>
+<p>The different scenarios may have different characters in color space, if we want to see what&#39;s different between in all color space, there is a function implemented for this purpose, <code>alld.cam.VisualUtil::draw_all_channels()</code>, we can generate all channels easily like the following:</p>
+<p><img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/all_channel_img.png" alt="alt text" title="All Channels Images">
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/all_channel_chn.png" alt="alt text" title="All Channels"></p>
+<h4 id="2-3-draw-pipeline-for-all-channels">2.3 Draw Pipeline for all channels</h4>
+<p>Once we know the characters within channels for specific scenario, we may draw the pipeline for all channels. If we change edge detection threshold or combinations, we can see the effect on difference channels instantly. The drawing is like the following:</p>
+<p><img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_all_channel_gray_r.png" alt="alt text">
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_all_channel_gray_g.png" alt="alt text">
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_all_channel_gray_b.png" alt="alt text">
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_all_channel_hls_h.png" alt="alt text">
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_all_channel_hls_l.png" alt="alt text">
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_all_channel_hls_s.png" alt="alt text">
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_all_channel_luv_l.png" alt="alt text">
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_all_channel_luv_u.png" alt="alt text">
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_all_channel_luv_v.png" alt="alt text">
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_all_channel_hsv_h.png" alt="alt text">
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_all_channel_hsv_s.png" alt="alt text">
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/pipeline_all_channel_hsv_v.png" alt="alt text"></p>
+<h3 id="3-future-improvement">3. Future Improvement</h3>
+<h4 id="3-1-scanning-algorithm">3.1 Scanning algorithm</h4>
+<p>Scanning algorithm is the most critical part. I think I will consider to improvement in the future. &#39;Harder challenge video&#39; needs more sophisticate mechanism to detect lane lines as hair pin curve. For example, the &#39;./frames/harder_challenge_video/frame0140.jpg&#39; can be detect correct if we skip the scanning procedure when no good pixels in scanning windows in line. The result is:
+<img src="/home/andrew/dev/source/SDC_Andrew/SDC/T1/CarND-Advanced-Lane-Lines/output_images/harder_challenge_diag_solved.png" alt="alt text"></p>
+<p>It needs more time for fine tuning to make sure all the other scenarios can perform as well the original design.</p>
+<h4 id="3-2-edge-detection">3.2 Edge detection</h4>
+<p>Edge detection is very important, if there is a way to let it learning from data or more adaptive, the performance may be better in different scenarios. I will try to find is there any better way to do the detection more adaptive in the future.</p></body>
+</html>
